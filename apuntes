@@ -1,0 +1,91 @@
+¿Qué es Git?¿Qué son los repositorios?
+Git es un software de control de versiones que registra los cambios realizados sobre un archivo o un conjunto de archivos a lo largo del tiempo. Git nos permite gestionar distintas versiones de un mismo archivo, pudiendo volver a una versión anterior o una más reciente cuando sea necesario.
+
+#Cuando trabajamos con GIT lo que creamos es un REPOSITORIO, es decir, un lugar donde guardamos y administramos nuestros archivos.
+
+#Existen dos tipos de repositorios:
+-Locales: Son aquellos que se crean de forma "local" en nuestra PC, y que no necesariamente son compartidos.
+-Remotos: Son aquellos que se encuantran alojados en algún servidor externo lugar. Un ejemplo de repositorio remoto puede ser Git-HUB.
+
+
+Cómo instalar la última versión de Git en Ubuntu
+Instalar Git en Ubuntu es sencillo. Obtener la última versión de Git tampoco es tan difícil. Aprende a instalar la última versión de Git en Ubuntu.
+Instalar Git en Ubuntu es muy fácil. Está disponible en el repositorio principal de Ubuntu y puedes instalarlo usando el commando apt así:
+
+sudo apt install git
+¿Fácil? ¿No lo es?
+
+Sólo hay un pequeño problema (que podría no ser un problema en absoluto) y es la versión de Git que instala.
+
+En un sistema LTS, la estabilidad del software es de suma importancia esta es la razón por la que Ubuntu 18.04 y otras distribuciones a menudo proporcionan versiones antiguas pero estables de software que están bien probadas con la versión de distribución.
+
+Esta es la razón por la que cuando compruebe la versión de Git, verá que instala una versión que es más antigua que la versión actual de Git disponible en el sitio web del proyecto Git:
+
+$ git --version
+git version 2.34.1
+En el momento de escribir este tutorial, la versión disponible en su sitio web es la 2.25. Entonces, ¿cómo instalar la última versión de Git en Ubuntu?
+
+Instalar la última versión de Git en distribuciones Linux basadas en Ubuntu
+Una forma sería instalar desde el código fuente. Este método de la vieja escuela no es del agrado de todos. Afortunadamente, hay un PPA disponible del equipo de Mantenedores de Git de Ubuntu que puedes usar para instalar fácilmente la última versión estable de Git.
+
+$ sudo add-apt-repository ppa:git-core/ppa
+$ sudo apt update
+$ sudo apt install git
+Incluso si has instalado Git usando apt previamente, se actualizará a la última version estable.
+
+$ git --version 
+git version 2.40.1
+Lo bueno de usar PPA es que, si hay una nueva versión estable de Git publicada, la obtendrás con las actualizaciones del sistema. Sólo tienes que actualizar Ubuntu para obtener la última versión estable de Git.
+
+Configurar Git [Recomendado para desarrolladores]
+Si has instalado Git con fines de desarrollo, pronto empezarás a clonar repos, hacer tus cambios y confirmar tu cambio.
+
+Si intentas confirmar tu código, puede que veas un error del tipo 'Please tell me who you are' como este:
+
+$ git commit -m "update readme"
+
+Identidad del autor desconocido
+
+*** Por favor cuéntame quién eres.
+
+Ejecuta
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Tu Nombre"
+
+para configurar la identidad por defecto de tu cuenta.
+Omite --global para configurar tu identidad solo en este repositorio.
+
+fatal: no es posible auto-detectar la dirección de correo (se obtuvo 'marcocarmonapy@honor.(none)')
+Esto se debe a que no has configurado Git con tu información personal, que es obligatoria.
+
+Como el error ya insinúa, puedes establecer la configuración global de Git así:
+
+$ git config --global user.email "you@example.com"
+$ git config --global user.name "Tu Nombre"
+Puede comprobar la configuración de Git con este comando:
+
+$ git config --list
+Debería mostrar un resultado como este:
+
+user.email=marcocarmonapy@private.com
+user.name=marcocarmonapy
+Esta configuración se almacena en el archivo ~/.gitconfig. También puedes modificarlo manualmente para cambiar la configuración.
+
+Para generar un repositorio local nos ubicambos en una carpeta y escribimos en la terminal git init.
+
+configurar el nombre del repositorio:
+git config user.name "CrissBlock"
+
+Configurar el email:
+git config user.email "cristiannqn92@gmail.com"
+
+Conectar nuestro repositorio local con nuestro repositorio remoto:
+git remote add origin "https://github.com/CrissBlock/CursoTodoCode.git"
+
+
+GIT ADD + COMMIT + PUSH + ACESS TOKEN
+En el primero vas a encontrar el uso de los comandos Git ADD y Git COMMIT, como así también Git PUSH. Para éste último comando, existe una configuración de GitHub que quedó obsoleta en Agosto de 2021 que genera problemas entre la conexión del repo local y el remoto, por lo cual…
+Te dejamos un segundo video donde te explicamos como hacer la nueva configuración correspondiente llamada «Personal Access Token (PAT)».
+
+para ver si nuestro archivo fue comiteado(agregado al commit) utilizamos el comando: git status
